@@ -60,5 +60,5 @@ def status_check():
     return "Sever deployed successfully :) " 
 
 
-if __name__ == '__main__':
-    app.run(debug=True)
+# if __name__ == '__main__':
+#     app.run(debug=True)
