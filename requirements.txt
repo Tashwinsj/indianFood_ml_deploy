@@ -1,4 +1,5 @@
 Flask 
+Gunicorn
 tensorflow 
 numpy 
 flask_cors 
