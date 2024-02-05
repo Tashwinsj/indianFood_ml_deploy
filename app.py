@@ -7,7 +7,7 @@ from PIL import Image
 
 app = Flask(__name__)
 CORS(app)
-model = tf.keras.models.load_model("/Users/tashwinsj/Desktop/ml deploy/indianFood.h5") 
+model = tf.keras.models.load_model("./indianFood.h5") 
 
 class_names = ['adhirasam', 'aloo_gobi','aloo_matar','aloo_methi','aloo_shimla_mirch','aloo_tikki','anarsa','ariselu','bandar_laddu','basundi','bhatura','bhindi_masala','biryani','boondi','butter_chicken','chak_hao_kheer','cham_cham','chana_masala','chapati','chhena_kheeri','chicken_razala','chicken_tikka',
  'chicken_tikka_masala','chikki','daal_baati_churma','daal_puri','dal_makhani','dal_tadka','dharwad_pedha','doodhpak','double_ka_meetha','dum_aloo','gajar_ka_halwa','gavvalu','ghevar','gulab_jamun','imarti','jalebi','kachori','kadai_paneer','kadhi_pakoda','kajjikaya','kakinada_khaja','kalakand','karela_bharta',
@@ -17,7 +17,7 @@ class_names = ['adhirasam', 'aloo_gobi','aloo_matar','aloo_methi','aloo_shimla_m
 
 
 
-@app.route('/', methods=['POST'])
+@app.route('/predict', methods=['POST'])
 def post_example():
       # Assumes the data is in JSON format
     if 'image' not in request.files:
@@ -40,3 +40,9 @@ def post_example():
     else:
         return jsonify({'error': 'Invalid data format'}), 400
     
+
+@app.route('/' ,methods =["GET"]) 
+def status_check():
+    return "Sever deployed successfully :) " 
+
+ 
