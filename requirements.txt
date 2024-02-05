@@ -3,4 +3,4 @@ Gunicorn
 tensorflow 
 numpy 
 flask_cors 
-PIL 
+Pillow
