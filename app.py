@@ -15,7 +15,21 @@ class_names = ['adhirasam', 'aloo_gobi','aloo_matar','aloo_methi','aloo_shimla_m
  'ras_malai','rasgulla','sandesh','shankarpali','sheer_korma','sheera','shrikhand','sohan_halwa','sohan_papdi','sutar_feni','unni_appam']
 
 
+@app.route('/submit', methods=['POST'])
+def submit_data():
+    try:
+        # Get the JSON data from the request
+        data = request.get_json()
 
+        # Do something with the data (in this example, just echoing it back)
+        result = {'message': 'Data received successfully', 'data': data}
+
+        # Return a JSON response
+        return jsonify(result)
+
+    except Exception as e:
+        # Handle exceptions appropriately
+        return jsonify({'error': str(e)})
 
 @app.route('/predict', methods=['POST'])
 def post_example():
@@ -45,4 +59,6 @@ def post_example():
 def status_check():
     return "Sever deployed successfully :) " 
 
- 
+
+if __name__ == '__main__':
+    app.run(debug=True)
