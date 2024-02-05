@@ -40,6 +40,3 @@ def post_example():
     else:
         return jsonify({'error': 'Invalid data format'}), 400
     
-
-if __name__ == '__main__':
-    app.run(port =8000)
